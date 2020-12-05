@@ -1,1 +1,4 @@
 APP_HOME=project
+PHP_INI_SCAN_DIR=/etc/opt/rh/rh-php70/php.d:/opt/app-root/php.d
+LD_LIBRARY_PATH=/opt/app-root/oracle/instantclient_12_2
+ORACLE_HOME=/opt/app-root/oracle/instantclient_12_2
