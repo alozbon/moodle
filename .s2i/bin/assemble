@@ -15,7 +15,7 @@ echo "---> Instalando paquetes yum para php..."
 # 2.- Copiar el contenido de los ficheros
 echo "---> Desplegando el aplicativo..."
 mv /tmp/src/* /var/www/html/
-cp /tmp/src/miconfig.php /var/www/html/config.php
+mv /var/www/html/miconfig.php /var/www/html/config.php
 # 3.- Configuración de conexión a BBDD
 echo "---> Configurando la conexión a BBDD..."
 #if [ -f /tmp/src/nginx.conf ]; then
