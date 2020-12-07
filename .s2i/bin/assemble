@@ -9,9 +9,9 @@
 
 # 1.- Paquetes de yum
 echo "---> Instalando paquetes yum para php..."
-yum install -y php-mysqlnd php-pgsql php-bcmath php-gd php-intl php-json php-ldap php-mbstring php-pdo \
-	php-process php-soap php-opcache php-xml php-gmp php-pecl-apcu mod_ssl hostname php-zip
-yum -y clean all
+#yum install -y php-mysqlnd php-pgsql php-bcmath php-gd php-intl php-json php-ldap php-mbstring php-pdo \
+#	php-process php-soap php-opcache php-xml php-gmp php-pecl-apcu mod_ssl hostname php-zip
+#yum -y clean all
 # 2.- Copiar el contenido de los ficheros
 echo "---> Desplegando el aplicativo..."
 mv /tmp/src/* /var/www/html/
