@@ -65,3 +65,4 @@ ENV PHP_CONTAINER_SCRIPTS_PATH=/usr/share/container-scripts/php/ \
     HTTPD_DATA_ORIG_PATH=/var/www \
     HTTPD_VAR_PATH=/var
 
+CMD ["/usr/sbin/httpd", "-DFOREGROUND"]
