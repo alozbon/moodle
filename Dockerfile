@@ -1,4 +1,4 @@
-FROM registry.redhat.io/ubi8:8.3
+FROM registry.redhat.io/ubi8/php-73
 
 # This image provides an Apache+PHP environment for running PHP
 # applications.
@@ -40,16 +40,19 @@ LABEL summary="${SUMMARY}" \
       usage="s2i build https://github.com/sclorg/s2i-php-container.git --context-dir=${PHP_VERSION}/test/test-app ubi8/${NAME}-${PHP_VER_SHORT} sample-server" \
       maintainer="SoftwareCollections.org <sclorg@redhat.com>"
 
+COPY ./.s2i/bin/ /usr/libexec/s2i
+
 # Install Apache httpd and PHP
-RUN yum -y module enable php:$PHP_VERSION && \
-    INSTALL_PKGS="php php-mysqlnd php-pgsql php-bcmath \
-                  php-gd php-intl php-json php-ldap php-mbstring php-pdo \
-                  php-process php-soap php-opcache php-xml \
-                  php-gmp php-pecl-apcu mod_ssl hostname" && \
-    yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
-    yum reinstall -y tzdata && \
-    rpm -V $INSTALL_PKGS && \
-    yum -y clean all --enablerepo='*'
+#USER root
+#RUN yum -y module enable php:$PHP_VERSION && \
+#    INSTALL_PKGS="php php-mysqlnd php-pgsql php-bcmath \
+#                  php-gd php-intl php-json php-ldap php-mbstring php-pdo \
+#                  php-process php-soap php-opcache php-xml \
+#                  php-gmp php-pecl-apcu mod_ssl hostname" && \
+#    yum install -y --setopt=tsflags=nodocs $INSTALL_PKGS && \
+#    yum reinstall -y tzdata && \
+#    rpm -V $INSTALL_PKGS && \
+#    yum -y clean all --enablerepo='*'
 
 ENV PHP_CONTAINER_SCRIPTS_PATH=/usr/share/container-scripts/php/ \
     APP_DATA=${APP_ROOT}/src \
