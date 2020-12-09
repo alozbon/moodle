@@ -41,6 +41,7 @@ LABEL summary="${SUMMARY}" \
       maintainer="SoftwareCollections.org <sclorg@redhat.com>"
 
 # Install Apache httpd and PHP
+USER root
 RUN yum -y module enable php:$PHP_VERSION && \
     INSTALL_PKGS="php php-mysqlnd php-pgsql php-bcmath \
                   php-gd php-intl php-json php-ldap php-mbstring php-pdo \
